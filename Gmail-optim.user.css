@@ -74,14 +74,13 @@ div.gb_2e.gb_Ve ~ button img {
 	/* Column */
 
 .aeN {
-    max-width: 240px !important;
-    min-width: 240px !important;
+	max-width: 240px !important;
+	min-width: 240px !important;
 }
 
 .wT {
-    max-width: 220px;
-    min-width: 220px;
-
+	max-width: 220px;
+	min-width: 220px;
 }
 
 	/* Categories */
@@ -185,12 +184,12 @@ div.gb_2e.gb_Ve ~ button img {
 }
 
 .zA > .a4W {
-    align-items: flex-start;
-    margin-left: 46px;
-    margin-right: 8px;
-    order: 1;
-    padding-right: 0;
-    width: calc(100% - 56px - 36px);
+	align-items: flex-start;
+	margin-left: 46px;
+	margin-right: 8px;
+	order: 1;
+	padding-right: 0;
+	width: calc(100% - 56px - 36px);
 	margin-top: 4px;
 }
 
@@ -221,7 +220,7 @@ div.gb_2e.gb_Ve ~ button img {
 }
 
 .zA > .xW {
-    flex-basis: auto;
+	flex-basis: auto;
 }
 
 
@@ -256,7 +255,7 @@ if hide-auto-answers {
 	/* A more visible already written text */
 
 .im {
-    color: #6c006c;
+	color: #6c006c;
 }
 
 /*
