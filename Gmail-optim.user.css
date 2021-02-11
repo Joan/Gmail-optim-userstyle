@@ -1,20 +1,14 @@
 /* ==UserStyle==
 @name        Gmail optim
 @namespace   StylishThemes
-@version     1.0.6
-@description Optimisation for the vertical split view (works for every views though).
-- Thiner and darker header
-- Hide hamburger menu (optional)
-- Smaller new message button
-- Condensed labels list
-- Always big entries on vertical-split preview view (you can activate this in the Gmail preferences)
-- Entries hover more bearable
-- Discussion header lightly dark
-- Hide auto-answers buttons (optional)
-- More identifiable already written text (purple text in messages)
+@version     1.0.7
+@description Optimisation for the vertical split view (works for every views)
 @homepageURL https://github.com/Joan/Gmail-optim-userstyle/
 @updateURL   https://raw.githubusercontent.com/Joan/Gmail-optim-userstyle/master/Gmail-optim.user.css
 @license     MIT
+@preprocessor stylus
+@var checkbox hide-burger-menu "Hide burger menu" 1
+@var checkbox hide-auto-answers "Hide auto answers" 1
 ==/UserStyle== */
 @-moz-document domain("mail.google.com") {
 /*
@@ -29,8 +23,7 @@ header[role="banner"] > div:nth-child(2) {
 	background-color: #f9f9f9 !important;
 }
 
-/*[[hide-logo-menu]]*/
-/* ################################### */
+if hide-burger-menu {
 	/* Hide hamburger menu */
 
 /*.gb_2b {*/ /* aria-label="Menu principal" */
@@ -44,7 +37,7 @@ header[role="banner"] > div:nth-child(2) div[aria-expanded="true"][aria-label][r
 header[role="banner"] > div:nth-child(2) div div:nth-child(4) {
 	padding-left: 12px;
 }
-/* ################################### */
+}
 
 		/* Search form */
 
@@ -252,14 +245,13 @@ div.gb_2e.gb_Ve ~ button img {
 	padding: 20px 20px 20px 14px;
 }
 
-/*[[hide-auto-answers]]*/
-/* ################################### */
+if hide-auto-answers {
 	/* Let's remove those useless auto-answers */
 
 .amr > .brb {
 	display: none;
 }
-/* ################################### */
+}
 
 	/* A more visible already written text */
 
@@ -275,22 +267,4 @@ div.gb_2e.gb_Ve ~ button img {
 	/* ... */
 
 
-/* ################################### * /
-	/* Bananatag dissimulation * /
-
-.bt-btn.solid.yellow.bt-send-schedule-btn { /* button label * /
-    font-size: 0px !important;
-    padding-left: 4px !important;
-	padding-right: 8px !important;
-}
-
-.bt-btn.solid.yellow.bt-send-schedule-btn::after{ /* button replacement label * /
-    content: "…";
-    font-size: 14px;
-}
-
-.bt-primary-actions-wrapper { /* toolbar * /
-    display: none !important;
-}
-/* ################################### */
 }
