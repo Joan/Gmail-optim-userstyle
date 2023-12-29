@@ -1,14 +1,13 @@
 /* ==UserStyle==
 @name        Gmail optim
 @namespace   StylishThemes
-@version     1.0.8
+@version     1.0.9
 @description Optimisation for the vertical split view (works for every views)
 @homepageURL https://github.com/Joan/Gmail-optim-userstyle/
 @updateURL   https://raw.githubusercontent.com/Joan/Gmail-optim-userstyle/master/Gmail-optim.user.css
 @license     MIT
 @preprocessor stylus
 @var checkbox hide-burger-menu "Hide burger menu" 1
-@var checkbox hide-auto-answers "Hide auto answers" 1
 ==/UserStyle== */
 @-moz-document domain("mail.google.com") {
 /*
@@ -19,19 +18,19 @@
 /* Hide hamburger menu */
 if hide-burger-menu {
 
-/*.gb_2b {*/ /* aria-label="Menu principal" */ /* Hamburger menu button */
+/* Hamburger menu button */
 header[role="banner"] > div:nth-child(2) div[aria-expanded="true"][aria-label][role="button"][tabindex="0"] {
 	display: none;
 }
 
-header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead of `.gb_Rb` which constantly changes) */
+header[role="banner"] > div:nth-child(2) div div:nth-child(4) {
 	padding-left: 12px;
 }
 
 }
 
 /* Logo adaptation for labels */
-.gb_7c {
+header[role="banner"] > div:nth-child(2) > div:nth-child(1) {
 	min-width: 222px !important;
 }
 
@@ -40,7 +39,7 @@ header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead
  *
  */
 
-.aeN { /* Nav column main container */
+div[role="navigation"] { /* Nav column main container */
 	max-width: 240px !important;
 	min-width: 240px !important;
 }
@@ -56,9 +55,10 @@ header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead
 
 /* New message button */
 
-.z0,
 .WR .z0 {
-	margin-bottom: 14px;
+	height: 46px;
+	margin: 6px 0 14px 12px;
+	align-items: start;
 }
 
 .z0 > .L3,
@@ -83,7 +83,7 @@ header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead
 	background-size: 23px;
 }
 
-/* Nav entries paddings */
+/* Nav menu entries */
 
 .TN { /* Nav entries */
 	padding-left: 20px;
@@ -99,25 +99,55 @@ header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead
 }
 
 /*
+ * Main panel (list and reader) and side pannel
+ *
+ */
+
+.bkK > .nH { /* Main panel */
+	border-radius: 16px 0 0 0;
+	margin-bottom: 0;
+}
+
+.bkK > .nH .Tm { /* Main panel child */
+	height: auto !important;
+}
+
+.S4 { /* Another main panel child */
+	height: calc(100vh - 64px);
+}
+
+.bAw.it { /* Side panel */
+	min-width: 0;
+}
+
+.bkK:has(~ .nH > .aUx > .bAw:not(.it)) > .nH {
+	border-radius: 16px 16px 0 0;
+}
+
+.brC-dA-I:not(:hover) { /* Side pannel button */
+	opacity: 0;
+}
+
+/*
  * Mails list (optimized for vertical separation)
  *
  */
 
 /* Mail list categories */
 
-.ae4.aDM:nth-child(2) .Wg.aAD.aAr { /* First category header bar */
-	display: none;
-}
-
+.ae4.aDM:nth-child(2) .Wg.aAD.aAr, /* First category header bar */
 .ae4.aDM:nth-child(3) .Wg.aAr { /* Second category header bar */
 	height: auto;
+	padding-top: 5px;
 }
 
-.ae4.aDM:nth-child(3) .Wg.aAr .Cq { /* Second category header label */
+.ae4.aDM:nth-child(2) .Wg.aAD.aAr > div:nth-child(1), /* First category header label */
+.ae4.aDM:nth-child(3) .Wg.aAr > div:nth-child(1) { /* Second category header label */
 	display: none;
 }
 
-.ae4.aDM:nth-child(3) .Wg.aAr .Di > .amH { /* Second category header nav */
+.ae4.aDM:nth-child(2) .Wg.aAD.aAr .Di .amH, /* First category header nav */
+.ae4.aDM:nth-child(3) .Wg.aAr .Di .amH { /* Second category header nav */
 	height: auto;
 	padding-top: 3px;
 	padding-bottom: 4px;
@@ -213,15 +243,6 @@ header[role="banner"] > div:nth-child(2) div div:nth-child(4) { /* Logo (instead
 	background-color: #f8f9fa;
 	border-bottom: 1px solid #eceff1;
 	padding: 20px 20px 20px 14px;
-}
-
-/* Remove auto-answers (before it was an option) */
-if hide-auto-answers {
-
-.amr > .brb {
-	display: none;
-}
-
 }
 
 /* A more obviously visible quoted text */
