@@ -109,7 +109,7 @@ div[role="navigation"] { /* Nav column main container */
 }
 
 .bkK > .nH .Tm { /* Main panel child */
-	height: calc(100vh - 113px) !important; /* Try to remove the bottom padding */
+	/*height: calc(100vh - 113px) !important; /* Try to remove the bottom padding */
 }
 
 .S4 { /* Another main panel child */
